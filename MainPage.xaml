@@ -1,0 +1,441 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="eMBTI.MainPage"
+             BackgroundColor="#F8FAF7"
+             Shell.NavBarIsVisible="False">
+
+    <ContentPage.Resources>
+        <Style TargetType="Button">
+            <Setter Property="Padding" Value="12,8" />
+            <Setter Property="FontAutoScalingEnabled" Value="True" />
+            <Setter Property="TextTransform" Value="None" />
+            <Setter Property="FontAttributes" Value="Bold" />
+        </Style>
+        <Style TargetType="Label">
+            <Setter Property="FontAutoScalingEnabled" Value="True" />
+            <Setter Property="TextTransform" Value="None" />
+        </Style>
+    </ContentPage.Resources>
+
+    <Grid x:Name="RootGrid" Padding="10">
+        <Grid.Background>
+            <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                <GradientStop Color="#FAFBF8" Offset="0.0" />
+                <GradientStop Color="#F1F5F2" Offset="0.42" />
+                <GradientStop Color="#FCFBF7" Offset="0.72" />
+                <GradientStop Color="#FAFBF8" Offset="1.0" />
+            </LinearGradientBrush>
+        </Grid.Background>
+
+        <Border WidthRequest="190" HeightRequest="190"
+                BackgroundColor="#E0F2FE" Opacity="0.38"
+                StrokeThickness="0" StrokeShape="RoundRectangle 95"
+                HorizontalOptions="Start" VerticalOptions="Start"
+                TranslationX="-70" TranslationY="-58"
+                InputTransparent="True" />
+
+        <Border WidthRequest="170" HeightRequest="170"
+                BackgroundColor="#DCE8D5" Opacity="0.30"
+                StrokeThickness="0" StrokeShape="RoundRectangle 85"
+                HorizontalOptions="End" VerticalOptions="Start"
+                TranslationX="58" TranslationY="78"
+                InputTransparent="True" />
+
+        <Border WidthRequest="220" HeightRequest="220"
+                BackgroundColor="#D9F2E6" Opacity="0.24"
+                StrokeThickness="0" StrokeShape="RoundRectangle 110"
+                HorizontalOptions="End" VerticalOptions="End"
+                TranslationX="74" TranslationY="72"
+                InputTransparent="True" />
+
+        <ScrollView>
+            <VerticalStackLayout x:Name="MainContent" Spacing="8" VerticalOptions="Center" HorizontalOptions="Center" MaximumWidthRequest="760">
+
+                <Border x:Name="BrandHeader"
+                        BackgroundColor="#FFFFFF"
+                        Stroke="#FFFFFF"
+                        StrokeThickness="1"
+                        Padding="10"
+                        StrokeShape="RoundRectangle 26">
+                    <Border.Shadow>
+                        <Shadow Brush="#66000000" Offset="0,10" Radius="26" Opacity="0.12" />
+                    </Border.Shadow>
+                    <VerticalStackLayout Spacing="5">
+                        <Label Text="성격어때"
+                               FontSize="26"
+                               FontAttributes="Bold"
+                               TextColor="#1E293B"
+                               HorizontalTextAlignment="Center" />
+                        <Label Text="8가지 성격 테스트를 전문적인 화면에서 편하게 진행하세요"
+                               FontSize="12"
+                               TextColor="#64748B"
+                               HorizontalTextAlignment="Center" />
+                        <HorizontalStackLayout HorizontalOptions="Center" Spacing="5">
+                            <Border BackgroundColor="#E9D5FF" Stroke="#D8B4FE" Padding="7,2" StrokeShape="RoundRectangle 12">
+                                <Label Text="MBTI" FontSize="11" FontAttributes="Bold" TextColor="#7E22CE" />
+                            </Border>
+                            <Border BackgroundColor="#DCFCE7" Stroke="#D9F2E6" Padding="7,2" StrokeShape="RoundRectangle 12">
+                                <Label Text="연애" FontSize="11" FontAttributes="Bold" TextColor="#166534" />
+                            </Border>
+                            <Border BackgroundColor="#FCE7F3" Stroke="#FBCFE8" Padding="7,2" StrokeShape="RoundRectangle 12">
+                                <Label Text="직장" FontSize="11" FontAttributes="Bold" TextColor="#9D174D" />
+                            </Border>
+                            <Border BackgroundColor="#FFEDD5" Stroke="#EAD1B5" Padding="7,2" StrokeShape="RoundRectangle 12">
+                                <Label Text="동물" FontSize="11" FontAttributes="Bold" TextColor="#C2410C" />
+                            </Border>
+                        </HorizontalStackLayout>
+                    </VerticalStackLayout>
+                </Border>
+
+                <VerticalStackLayout x:Name="MenuView" Spacing="8">
+                    <Border BackgroundColor="#FFFFFF"
+                            Stroke="#E2E8F0"
+                            StrokeThickness="1"
+                            Padding="10"
+                            StrokeShape="RoundRectangle 24">
+                        <Border.Shadow>
+                            <Shadow Brush="#66000000" Offset="0,8" Radius="22" Opacity="0.10" />
+                        </Border.Shadow>
+                        <VerticalStackLayout Spacing="8">
+                            <Border BackgroundColor="#F1F5F2"
+                                    Stroke="#DCE8D5"
+                                    Padding="10,7"
+                                    StrokeShape="RoundRectangle 18">
+                                <Label Text="원하는 테스트를 선택하세요"
+                                       FontSize="16"
+                                       FontAttributes="Bold"
+                                       TextColor="#1E293B"
+                                       HorizontalTextAlignment="Center" />
+                            </Border>
+
+                            <Label Text="10 / 20 / 40 / 50문항을 선택할 수 있습니다. 각 메뉴의 ? 버튼을 누르면 테스트 설명을 볼 수 있습니다."
+                                   FontSize="12"
+                                   TextColor="#64748B"
+                                   LineBreakMode="WordWrap"
+                                   HorizontalTextAlignment="Center" />
+
+                            <Grid x:Name="MenuGrid" RowDefinitions="Auto,Auto,Auto,Auto" ColumnDefinitions="*,*" RowSpacing="6" ColumnSpacing="8">
+                                <Border StrokeThickness="0" StrokeShape="RoundRectangle 20" BackgroundColor="#DDE7F7" Padding="0" MinimumHeightRequest="50">
+                                    <Border.Shadow><Shadow Brush="#33000000" Offset="0,4" Radius="10" Opacity="0.12" /></Border.Shadow>
+                                    <Grid ColumnDefinitions="*,Auto" Padding="8,5" ColumnSpacing="6">
+                                        <Button Text="🧠 MBTI&#10;성격유형" Clicked="MbtiMenuClicked" StyleId="mbti" BackgroundColor="Transparent" TextColor="#1F2937" FontSize="13" FontAttributes="Bold" Padding="0" />
+                                        <Button Grid.Column="1" Text="?" StyleId="mbti" Clicked="HelpClicked" WidthRequest="28" HeightRequest="28" CornerRadius="14" Padding="0" FontSize="15" FontAttributes="Bold" BackgroundColor="#FFFFFF" TextColor="#1E293B" BorderColor="#DCE8D5" BorderWidth="1" />
+                                    </Grid>
+                                </Border>
+                                <Border Grid.Column="1" StrokeThickness="0" StrokeShape="RoundRectangle 20" BackgroundColor="#F6E4D6" Padding="0" MinimumHeightRequest="50">
+                                    <Border.Shadow><Shadow Brush="#33000000" Offset="0,4" Radius="10" Opacity="0.12" /></Border.Shadow>
+                                    <Grid ColumnDefinitions="*,Auto" Padding="8,5" ColumnSpacing="6">
+                                        <Button Text="🐾 동물&#10;성격유형" Clicked="AnimalMenuClicked" BackgroundColor="Transparent" TextColor="#1F2937" FontSize="13" FontAttributes="Bold" Padding="0" />
+                                        <Button Grid.Column="1" Text="?" StyleId="animal" Clicked="HelpClicked" WidthRequest="28" HeightRequest="28" CornerRadius="14" Padding="0" FontSize="15" FontAttributes="Bold" BackgroundColor="#FFFFFF" TextColor="#1E293B" BorderColor="#DCE8D5" BorderWidth="1" />
+                                    </Grid>
+                                </Border>
+                                <Border Grid.Row="1" StrokeThickness="0" StrokeShape="RoundRectangle 20" BackgroundColor="#F8DDEB" Padding="0" MinimumHeightRequest="50">
+                                    <Border.Shadow><Shadow Brush="#33000000" Offset="0,4" Radius="10" Opacity="0.12" /></Border.Shadow>
+                                    <Grid ColumnDefinitions="*,Auto" Padding="8,5" ColumnSpacing="6">
+                                        <Button Text="💝 연애&#10;성향" Clicked="LoveMenuClicked" BackgroundColor="Transparent" TextColor="#1F2937" FontSize="13" FontAttributes="Bold" Padding="0" />
+                                        <Button Grid.Column="1" Text="?" StyleId="love" Clicked="HelpClicked" WidthRequest="28" HeightRequest="28" CornerRadius="14" Padding="0" FontSize="15" FontAttributes="Bold" BackgroundColor="#FFFFFF" TextColor="#1E293B" BorderColor="#DCE8D5" BorderWidth="1" />
+                                    </Grid>
+                                </Border>
+                                <Border Grid.Row="1" Grid.Column="1" StrokeThickness="0" StrokeShape="RoundRectangle 20" BackgroundColor="#DDEBFA" Padding="0" MinimumHeightRequest="50">
+                                    <Border.Shadow><Shadow Brush="#33000000" Offset="0,4" Radius="10" Opacity="0.12" /></Border.Shadow>
+                                    <Grid ColumnDefinitions="*,Auto" Padding="8,5" ColumnSpacing="6">
+                                        <Button Text="💼 직장인&#10;업무유형" Clicked="WorkMenuClicked" BackgroundColor="Transparent" TextColor="#1F2937" FontSize="13" FontAttributes="Bold" Padding="0" />
+                                        <Button Grid.Column="1" Text="?" StyleId="work" Clicked="HelpClicked" WidthRequest="28" HeightRequest="28" CornerRadius="14" Padding="0" FontSize="15" FontAttributes="Bold" BackgroundColor="#FFFFFF" TextColor="#1E293B" BorderColor="#DCE8D5" BorderWidth="1" />
+                                    </Grid>
+                                </Border>
+                                <Border Grid.Row="2" StrokeThickness="0" StrokeShape="RoundRectangle 20" BackgroundColor="#D9EFE7" Padding="0" MinimumHeightRequest="50">
+                                    <Border.Shadow><Shadow Brush="#33000000" Offset="0,4" Radius="10" Opacity="0.12" /></Border.Shadow>
+                                    <Grid ColumnDefinitions="*,Auto" Padding="8,5" ColumnSpacing="6">
+                                        <Button Text="💳 소비&#10;성향" Clicked="MoneyMenuClicked" BackgroundColor="Transparent" TextColor="#1F2937" FontSize="13" FontAttributes="Bold" Padding="0" />
+                                        <Button Grid.Column="1" Text="?" StyleId="money" Clicked="HelpClicked" WidthRequest="28" HeightRequest="28" CornerRadius="14" Padding="0" FontSize="15" FontAttributes="Bold" BackgroundColor="#FFFFFF" TextColor="#1E293B" BorderColor="#DCE8D5" BorderWidth="1" />
+                                    </Grid>
+                                </Border>
+                                <Border Grid.Row="2" Grid.Column="1" StrokeThickness="0" StrokeShape="RoundRectangle 20" BackgroundColor="#D7EEF2" Padding="0" MinimumHeightRequest="50">
+                                    <Border.Shadow><Shadow Brush="#33000000" Offset="0,4" Radius="10" Opacity="0.12" /></Border.Shadow>
+                                    <Grid ColumnDefinitions="*,Auto" Padding="8,5" ColumnSpacing="6">
+                                        <Button Text="✈️ 여행&#10;스타일" Clicked="TravelMenuClicked" BackgroundColor="Transparent" TextColor="#1F2937" FontSize="13" FontAttributes="Bold" Padding="0" />
+                                        <Button Grid.Column="1" Text="?" StyleId="travel" Clicked="HelpClicked" WidthRequest="28" HeightRequest="28" CornerRadius="14" Padding="0" FontSize="15" FontAttributes="Bold" BackgroundColor="#FFFFFF" TextColor="#1E293B" BorderColor="#DCE8D5" BorderWidth="1" />
+                                    </Grid>
+                                </Border>
+                                <Border Grid.Row="3" StrokeThickness="0" StrokeShape="RoundRectangle 20" BackgroundColor="#F3E8C9" Padding="0" MinimumHeightRequest="50">
+                                    <Border.Shadow><Shadow Brush="#33000000" Offset="0,4" Radius="10" Opacity="0.12" /></Border.Shadow>
+                                    <Grid ColumnDefinitions="*,Auto" Padding="8,5" ColumnSpacing="6">
+                                        <Button Text="🍽️ 음식&#10;취향성격" Clicked="FoodMenuClicked" BackgroundColor="Transparent" TextColor="#1F2937" FontSize="13" FontAttributes="Bold" Padding="0" />
+                                        <Button Grid.Column="1" Text="?" StyleId="food" Clicked="HelpClicked" WidthRequest="28" HeightRequest="28" CornerRadius="14" Padding="0" FontSize="15" FontAttributes="Bold" BackgroundColor="#FFFFFF" TextColor="#1E293B" BorderColor="#DCE8D5" BorderWidth="1" />
+                                    </Grid>
+                                </Border>
+                                <Border Grid.Row="3" Grid.Column="1" StrokeThickness="0" StrokeShape="RoundRectangle 20" BackgroundColor="#E5DDF3" Padding="0" MinimumHeightRequest="50">
+                                    <Border.Shadow><Shadow Brush="#33000000" Offset="0,4" Radius="10" Opacity="0.12" /></Border.Shadow>
+                                    <Grid ColumnDefinitions="*,Auto" Padding="8,5" ColumnSpacing="6">
+                                        <Button Text="🎨 색깔&#10;성격유형" Clicked="ColorMenuClicked" BackgroundColor="Transparent" TextColor="#1F2937" FontSize="13" FontAttributes="Bold" Padding="0" />
+                                        <Button Grid.Column="1" Text="?" StyleId="color" Clicked="HelpClicked" WidthRequest="28" HeightRequest="28" CornerRadius="14" Padding="0" FontSize="15" FontAttributes="Bold" BackgroundColor="#FFFFFF" TextColor="#1E293B" BorderColor="#DCE8D5" BorderWidth="1" />
+                                    </Grid>
+                                </Border>
+                            </Grid>
+
+                            <Button Text="앱 종료"
+                                    Clicked="ExitClicked"
+                                    MinimumHeightRequest="42"
+                                    CornerRadius="15"
+                                    FontSize="15"
+                                    BackgroundColor="#FAFBF8"
+                                    BorderColor="#D7DEE8"
+                                    BorderWidth="1"
+                                    TextColor="#475569" />
+                        </VerticalStackLayout>
+                    </Border>
+                </VerticalStackLayout>
+
+                <VerticalStackLayout x:Name="CountView" Spacing="8" IsVisible="False">
+                    <Border BackgroundColor="#FFFFFF"
+                            Stroke="#E2E8F0"
+                            StrokeThickness="1"
+                            Padding="10"
+                            StrokeShape="RoundRectangle 24">
+                        <Border.Shadow>
+                            <Shadow Brush="#66000000" Offset="0,8" Radius="22" Opacity="0.10" />
+                        </Border.Shadow>
+                        <VerticalStackLayout Spacing="8">
+                            <Border BackgroundColor="#F1F5F2"
+                                    Stroke="#DCE8D5"
+                                    Padding="10,7"
+                                    StrokeShape="RoundRectangle 18">
+                                <VerticalStackLayout Spacing="4">
+                                    <Label x:Name="CountTitleLabel"
+                                           Text="문항 수 선택"
+                                           FontSize="20"
+                                           FontAttributes="Bold"
+                                           TextColor="#1E293B"
+                                           HorizontalTextAlignment="Center" />
+                                    <Label Text="가볍게 보려면 10문항, 자세히 보려면 40~50문항을 선택하세요"
+                                           FontSize="13"
+                                           TextColor="#64748B"
+                                           HorizontalTextAlignment="Center" />
+                                </VerticalStackLayout>
+                            </Border>
+
+                            <Grid x:Name="CountGrid" RowDefinitions="Auto,Auto" ColumnDefinitions="*,*" RowSpacing="7" ColumnSpacing="8">
+                                <Button Text="10문항&#10;빠른 테스트" StyleId="10" Clicked="QuestionCountClicked" MinimumHeightRequest="58" CornerRadius="18" FontSize="14" FontAttributes="Bold" BackgroundColor="#DDE7F7" TextColor="#334155" />
+                                <Button Grid.Column="1" Text="20문항&#10;기본 테스트" StyleId="20" Clicked="QuestionCountClicked" MinimumHeightRequest="58" CornerRadius="18" FontSize="14" FontAttributes="Bold" BackgroundColor="#D9E8F6" TextColor="#334155" />
+                                <Button Grid.Row="1" Text="40문항&#10;상세 테스트" StyleId="40" Clicked="QuestionCountClicked" MinimumHeightRequest="58" CornerRadius="18" FontSize="14" FontAttributes="Bold" BackgroundColor="#D9EFE7" TextColor="#334155" />
+                                <Button Grid.Row="1" Grid.Column="1" Text="50문항&#10;정밀 테스트" StyleId="50" Clicked="QuestionCountClicked" MinimumHeightRequest="58" CornerRadius="18" FontSize="14" FontAttributes="Bold" BackgroundColor="#F4DEE9" TextColor="#334155" />
+                            </Grid>
+
+                            <Grid ColumnDefinitions="*,*" ColumnSpacing="10">
+                                <Button Text="테스트 메뉴" Clicked="HomeClicked" MinimumHeightRequest="44" CornerRadius="15" BackgroundColor="#FAFBF8" BorderColor="#D7DEE8" BorderWidth="1" TextColor="#475569" FontAttributes="Bold" />
+                                <Button Grid.Column="1" Text="종료" Clicked="ExitClicked" MinimumHeightRequest="44" CornerRadius="15" BackgroundColor="#FDF2F2" BorderColor="#F3C6C6" BorderWidth="1" TextColor="#9F4444" FontAttributes="Bold" />
+                            </Grid>
+                        </VerticalStackLayout>
+                    </Border>
+                </VerticalStackLayout>
+
+                <VerticalStackLayout x:Name="QuestionView" Spacing="7" IsVisible="False">
+                    <Border BackgroundColor="#FFFFFFE8"
+                            Stroke="#C4B5FD"
+                            StrokeThickness="1"
+                            Padding="12,9"
+                            StrokeShape="RoundRectangle 26">
+                        <Border.Shadow>
+                            <Shadow Brush="#66000000" Offset="0,7" Radius="20" Opacity="0.11" />
+                        </Border.Shadow>
+                        <Grid ColumnDefinitions="Auto,*,Auto" ColumnSpacing="13">
+                            <Border WidthRequest="40" MinimumHeightRequest="42" BackgroundColor="#E5DDF3" StrokeThickness="0" StrokeShape="RoundRectangle 24">
+                                <Label x:Name="QuestionIconLabel" Text="성" FontSize="16" FontAttributes="Bold" TextColor="White" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" />
+                            </Border>
+                            <VerticalStackLayout Grid.Column="1" Spacing="2" VerticalOptions="Center">
+                                <Label x:Name="QuestionTestTitleLabel" Text="성격어때" FontSize="18" FontAttributes="Bold" TextColor="#1E293B" />
+                                <Label Text="나에게 가까운 답변을 선택하세요" FontSize="13" TextColor="#475569" />
+                                <Label Text="정답보다 중요한 건 나다운 선택입니다" FontSize="10" TextColor="#E5DDF3" />
+                            </VerticalStackLayout>
+                            <Border Grid.Column="2" BackgroundColor="#F1F5F2" Stroke="#DCE8D5" Padding="12,6" VerticalOptions="Center" StrokeShape="RoundRectangle 17">
+                                <Label x:Name="QuestionBadgeLabel" Text="TEST" FontSize="13" FontAttributes="Bold" TextColor="#52637A" />
+                            </Border>
+                        </Grid>
+                    </Border>
+
+                    <Border BackgroundColor="#FFFFFF" Stroke="#E2E8F0" StrokeThickness="1" Padding="9" StrokeShape="RoundRectangle 22">
+                        <Border.Shadow>
+                            <Shadow Brush="#66000000" Offset="0,8" Radius="22" Opacity="0.10" />
+                        </Border.Shadow>
+                        <VerticalStackLayout Spacing="7">
+                            <Grid ColumnDefinitions="*,Auto">
+                                <Label x:Name="ProgressText" FontSize="11" FontAttributes="Bold" TextColor="#475569" />
+                                <Border Grid.Column="1" BackgroundColor="#ECFDF3" Stroke="#D9F2E6" Padding="8,2" StrokeShape="RoundRectangle 12">
+                                    <Label Text="진행중" FontSize="11" FontAttributes="Bold" TextColor="#166534" />
+                                </Border>
+                            </Grid>
+
+                            <ProgressBar x:Name="QuestionProgress" HeightRequest="4" Progress="0" ProgressColor="#DDE7F7" BackgroundColor="#D9E5D5" />
+
+                            <Border BackgroundColor="#FFF1C2" Stroke="#FFE08A" Padding="8,5" StrokeShape="RoundRectangle 14">
+                                <Label Text="💡 솔직하게 답변하세요. 개인정보는 저장되지 않습니다." FontSize="11" TextColor="#7C4A03" HorizontalTextAlignment="Center" />
+                            </Border>
+
+                            <Border BackgroundColor="#FAFBF8" Stroke="#E2E8F0" Padding="12" StrokeShape="RoundRectangle 18">
+                                <Label x:Name="QuestionTitle" FontSize="17" FontAttributes="Bold" TextColor="#182230" HorizontalTextAlignment="Center" LineBreakMode="WordWrap" />
+                            </Border>
+
+                            <VerticalStackLayout x:Name="OptionContainer" Spacing="6" />
+
+                            <Grid x:Name="QuestionNavGrid" ColumnDefinitions="*,*,*" ColumnSpacing="6" RowSpacing="6">
+                                <Button x:Name="PrevButton" Text="전 질문" Clicked="PrevClicked" MinimumHeightRequest="40" CornerRadius="14" FontSize="13" BackgroundColor="#F1F5F2" BorderColor="#DCE8D5" BorderWidth="1" TextColor="#334155" />
+                                <Button Grid.Column="1" Text="메뉴" Clicked="HomeClicked" MinimumHeightRequest="40" CornerRadius="14" FontSize="13" BackgroundColor="#FAF2E8" BorderColor="#EAD1B5" BorderWidth="1" TextColor="#8A5A3C" />
+                                <Button Grid.Column="2" Text="종료" Clicked="ExitClicked" MinimumHeightRequest="40" CornerRadius="14" FontSize="13" BackgroundColor="#FDF2F2" BorderColor="#F3C6C6" BorderWidth="1" TextColor="#9F4444" />
+                            </Grid>
+                        </VerticalStackLayout>
+                    </Border>
+                </VerticalStackLayout>
+
+                <VerticalStackLayout x:Name="ResultView" Spacing="8" IsVisible="False">
+                    <Border BackgroundColor="#FFFFFF" Stroke="#E2E8F0" StrokeThickness="1" Padding="12" StrokeShape="RoundRectangle 24">
+                        <Border.Shadow>
+                            <Shadow Brush="#66000000" Offset="0,8" Radius="22" Opacity="0.10" />
+                        </Border.Shadow>
+                        <VerticalStackLayout Spacing="8">
+                            <Border BackgroundColor="#F1F5F2" Stroke="#DDE8D9" Padding="8,5" StrokeShape="RoundRectangle 14">
+                                <Label x:Name="ResultHeaderLabel" Text="나의 성격 유형" FontSize="15" FontAttributes="Bold" TextColor="#1E293B" HorizontalTextAlignment="Center" />
+                            </Border>
+                            <Label x:Name="ResultEmojiLabel" FontSize="34" HorizontalTextAlignment="Center" />
+                            <Label x:Name="ResultTypeLabel" FontSize="25" FontAttributes="Bold" TextColor="#182230" HorizontalTextAlignment="Center" />
+                            <Label x:Name="ResultDescLabel" FontSize="13" TextColor="#334155" LineBreakMode="WordWrap" HorizontalTextAlignment="Center" />
+
+                            <Border BackgroundColor="#FAFBF8" Stroke="#E2E8F0" Padding="10" StrokeShape="RoundRectangle 20">
+                                <Label x:Name="ScoreSummaryLabel" FontSize="13" TextColor="#475569" HorizontalTextAlignment="Center" LineBreakMode="WordWrap" />
+                            </Border>
+
+                            <Border BackgroundColor="#F0FDFA" Stroke="#A7F3D0" Padding="10" StrokeShape="RoundRectangle 20">
+                                <Label x:Name="ResultAdviceLabel" FontSize="12" TextColor="#065F46" LineBreakMode="WordWrap" />
+                            </Border>
+
+                            <Grid x:Name="ResultButtonGrid" RowDefinitions="Auto,Auto" ColumnDefinitions="*,*" RowSpacing="7" ColumnSpacing="8">
+                                <Button Text="상세분석" Clicked="DetailClicked" MinimumHeightRequest="44" CornerRadius="15" BackgroundColor="#D9EFE7" TextColor="#334155" FontAttributes="Bold" />
+                                <Button Grid.Column="1" Text="결과 공유하기" Clicked="ShareClicked" MinimumHeightRequest="44" CornerRadius="15" BackgroundColor="#F3E8C9" TextColor="#1F2937" FontAttributes="Bold" />
+                                <Button Grid.Row="1" Text="다시하기" Clicked="RetryClicked" MinimumHeightRequest="44" CornerRadius="15" BackgroundColor="#DDE7F7" TextColor="#334155" FontAttributes="Bold" />
+                                <Button Grid.Row="1" Grid.Column="1" Text="메뉴로" Clicked="HomeClicked" MinimumHeightRequest="44" CornerRadius="15" BackgroundColor="#FAFBF8" BorderColor="#D7DEE8" BorderWidth="1" TextColor="#475569" FontAttributes="Bold" />
+                            </Grid>
+                        </VerticalStackLayout>
+                    </Border>
+                </VerticalStackLayout>
+
+                <VerticalStackLayout x:Name="DetailView" Spacing="8" IsVisible="False">
+                    <Border BackgroundColor="#FFFFFF" Stroke="#E2E8F0" StrokeThickness="1" Padding="12" StrokeShape="RoundRectangle 24">
+                        <Border.Shadow>
+                            <Shadow Brush="#66000000" Offset="0,8" Radius="22" Opacity="0.10" />
+                        </Border.Shadow>
+                        <VerticalStackLayout Spacing="8">
+                            <Border BackgroundColor="#F1F5F2" Stroke="#DDE8D9" Padding="8,5" StrokeShape="RoundRectangle 14">
+                                <Label x:Name="DetailHeaderLabel" Text="상세분석" FontSize="15" FontAttributes="Bold" TextColor="#1E293B" HorizontalTextAlignment="Center" />
+                            </Border>
+                            <Label x:Name="DetailTitleLabel" FontSize="23" FontAttributes="Bold" TextColor="#182230" HorizontalTextAlignment="Center" />
+                            <Border BackgroundColor="#FAFBF8" Stroke="#E2E8F0" Padding="10" StrokeShape="RoundRectangle 20">
+                                <Label x:Name="DetailBodyLabel" FontSize="13" TextColor="#334155" LineBreakMode="WordWrap" />
+                            </Border>
+                            <Grid x:Name="DetailButtonGrid" ColumnDefinitions="*,*,*" ColumnSpacing="6" RowSpacing="6">
+                                <Button Text="결과" Clicked="BackToResultClicked" MinimumHeightRequest="44" CornerRadius="15" BackgroundColor="#DDE7F7" TextColor="#334155" FontAttributes="Bold" />
+                                <Button Grid.Column="1" Text="공유하기" Clicked="ShareClicked" MinimumHeightRequest="44" CornerRadius="15" BackgroundColor="#F3E8C9" TextColor="#1F2937" FontAttributes="Bold" />
+                                <Button Grid.Column="2" Text="메뉴" Clicked="HomeClicked" MinimumHeightRequest="44" CornerRadius="15" BackgroundColor="#FAFBF8" BorderColor="#D7DEE8" BorderWidth="1" TextColor="#475569" FontAttributes="Bold" />
+                            </Grid>
+                        </VerticalStackLayout>
+                    </Border>
+                </VerticalStackLayout>
+
+            </VerticalStackLayout>
+        </ScrollView>
+
+        <!-- Custom confirmation popup -->
+        <Grid x:Name="ConfirmPopupOverlay"
+              IsVisible="False"
+              BackgroundColor="#990F172A"
+              Padding="24"
+              InputTransparent="False">
+            <Border x:Name="ConfirmPopupCard"
+                    WidthRequest="340"
+                    MaximumWidthRequest="420"
+                    HorizontalOptions="Center"
+                    VerticalOptions="Center"
+                    BackgroundColor="#FFFFFF"
+                    Stroke="#FFFFFF"
+                    StrokeThickness="1"
+                    Padding="22"
+                    StrokeShape="RoundRectangle 30">
+                <Border.Shadow>
+                    <Shadow Brush="#66000000" Offset="0,14" Radius="34" Opacity="0.24" />
+                </Border.Shadow>
+
+                <VerticalStackLayout Spacing="14">
+                    <Border WidthRequest="68"
+                            HeightRequest="68"
+                            HorizontalOptions="Center"
+                            BackgroundColor="#F1F5F2"
+                            Stroke="#DCE8D5"
+                            StrokeThickness="1"
+                            StrokeShape="RoundRectangle 34">
+                        <Label x:Name="ConfirmPopupIconLabel"
+                               Text="✨"
+                               FontSize="30"
+                               HorizontalTextAlignment="Center"
+                               VerticalTextAlignment="Center" />
+                    </Border>
+
+                    <Label x:Name="ConfirmPopupTitleLabel"
+                           Text="확인"
+                           FontSize="22"
+                           FontAttributes="Bold"
+                           TextColor="#111827"
+                           HorizontalTextAlignment="Center" />
+
+                    <Label x:Name="ConfirmPopupMessageLabel"
+                           Text="진행할까요?"
+                           FontSize="14"
+                           TextColor="#475569"
+                           LineHeight="1.25"
+                           LineBreakMode="WordWrap"
+                           HorizontalTextAlignment="Center" />
+
+                    <Border x:Name="ConfirmPopupNoticeBorder"
+                            BackgroundColor="#FAFBF8"
+                            Stroke="#E2E8F0"
+                            StrokeThickness="1"
+                            Padding="12,9"
+                            StrokeShape="RoundRectangle 18">
+                        <Label x:Name="ConfirmPopupNoticeLabel"
+                               Text="현재 진행 중인 내용은 저장되지 않을 수 있습니다."
+                               FontSize="12"
+                               TextColor="#64748B"
+                               LineBreakMode="WordWrap"
+                               HorizontalTextAlignment="Center" />
+                    </Border>
+
+                    <Grid ColumnDefinitions="*,*"
+                          ColumnSpacing="10"
+                          Margin="0,4,0,0">
+                        <Button x:Name="ConfirmPopupSecondaryButton"
+                                Text="취소"
+                                Clicked="ConfirmPopupSecondaryClicked"
+                                HeightRequest="48"
+                                CornerRadius="18"
+                                FontSize="15"
+                                FontAttributes="Bold"
+                                BackgroundColor="#FAFBF8"
+                                BorderColor="#D7DEE8"
+                                BorderWidth="1"
+                                TextColor="#334155" />
+
+                        <Button x:Name="ConfirmPopupPrimaryButton"
+                                Grid.Column="1"
+                                Text="확인"
+                                Clicked="ConfirmPopupPrimaryClicked"
+                                HeightRequest="48"
+                                CornerRadius="18"
+                                FontSize="15"
+                                FontAttributes="Bold"
+                                BackgroundColor="#DDE7F7"
+                                TextColor="#334155" />
+                    </Grid>
+                </VerticalStackLayout>
+            </Border>
+        </Grid>
+
+    </Grid>
+</ContentPage>
