@@ -1,0 +1,26 @@
+# Build output
+bin/
+obj/
+
+# Visual Studio
+.vs/
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+# MAUI / Android signing and packages
+*.keystore
+*.jks
+*.apk
+*.aab
+*.idsig
+
+# Archives and temporary files
+*.zip
+*.tmp
+*.log
+
+# OS files
+.DS_Store
+Thumbs.db
